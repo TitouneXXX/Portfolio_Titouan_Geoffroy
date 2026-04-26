@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio — GEOFFROY Titouan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:       #f7f5f2;
+      --white:    #ffffff;
+      --border:   #e8e4df;
+      --ink:      #1a1714;
+      --sub:      #6b6560;
+      --muted:    #a09a95;
+      --accent:   #2d6a4f;
+      --accent-l: #d8ede4;
+      --serif:    'DM Serif Display', serif;
+      --sans:     'DM Sans', sans-serif;
+      --radius:   .5rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 5vw;
+      background: rgba(247,245,242,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--ink);
+      letter-spacing: -.01em;
+    }
+
+    .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+    .nav-links a {
+      font-size: .85rem;
+      font-weight: 400;
+      color: var(--sub);
+      text-decoration: none;
+      letter-spacing: .02em;
+      transition: color .18s;
+    }
+    .nav-links a:hover { color: var(--ink); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 4rem;
+      padding: 8rem 5vw 5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .78rem; font-weight: 500;
+      color: var(--accent);
+      letter-spacing: .08em; text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero-eyebrow span {
+      display: inline-block; width: 24px; height: 1px;
+      background: var(--accent);
+    }
+
+    h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 em { font-style: italic; color: var(--accent); }
+
+    .hero-desc {
+      font-size: 1rem; line-height: 1.8;
+      color: var(--sub); max-width: 480px;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+    .btn {
+      font-size: .85rem; font-weight: 500;
+      letter-spacing: .02em;
+      padding: .75rem 1.8rem;
+      border-radius: 2rem;
+      text-decoration: none; cursor: pointer; border: none;
+      transition: all .2s;
+      display: inline-flex; align-items: center; gap: .4rem;
+    }
+    .btn-primary { background: var(--ink); color: var(--white); }
+    .btn-primary:hover { background: #2e2a27; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.12); }
+    .btn-ghost { background: transparent; color: var(--sub); border: 1.5px solid var(--border); }
+    .btn-ghost:hover { border-color: var(--ink); color: var(--ink); transform: translateY(-2px); }
+
+    /* Hero right — carte flottante */
+    .hero-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 1.2rem;
+      padding: 2.5rem;
+      box-shadow: 0 4px 40px rgba(0,0,0,.05), 0 1px 3px rgba(0,0,0,.04);
+    }
+
+    .card-avatar {
+      width: 60px; height: 60px;
+      background: var(--accent-l);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif); font-size: 1.4rem; color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .card-info-list { display: flex; flex-direction: column; gap: .85rem; }
+
+    .card-info-row {
+      display: flex; align-items: center; gap: 1rem;
+      font-size: .88rem;
+      padding-bottom: .85rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .card-info-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .ci-label {
+      font-size: .72rem; text-transform: uppercase; letter-spacing: .08em;
+      color: var(--muted); min-width: 64px;
+    }
+    .ci-val { color: var(--ink); font-weight: 500; }
+
+    .badge {
+      display: inline-block;
+      background: var(--accent-l); color: var(--accent);
+      font-size: .72rem; font-weight: 500;
+      padding: .25rem .7rem; border-radius: 2rem;
+    }
+
+    /* ── DIVIDER ── */
+    .full-divider {
+      border: none; border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── SECTIONS ── */
+    .section-wrap {
+      max-width: 1200px; margin: 0 auto;
+      padding: 6rem 5vw;
+    }
+
+    .section-head {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      margin-bottom: 3rem; flex-wrap: wrap; gap: 1rem;
+    }
+
+    .section-num {
+      font-size: .72rem; font-weight: 500;
+      color: var(--muted); letter-spacing: .12em;
+      text-transform: uppercase; margin-bottom: .4rem;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      line-height: 1.1; letter-spacing: -.02em;
+    }
+
+    /* ── À PROPOS ── */
+    .about-cols {
+      display: grid; grid-template-columns: 3fr 2fr; gap: 4rem;
+      align-items: start;
+    }
+
+    .about-text p {
+      font-size: 1rem; line-height: 1.85; color: var(--sub);
+      margin-bottom: 1.2rem;
+    }
+    .about-text p strong { color: var(--ink); font-weight: 500; }
+
+    .about-aside { display: flex; flex-direction: column; gap: .6rem; }
+
+    .aside-item {
+      display: flex; gap: 1rem; align-items: flex-start;
+      padding: 1rem 1.2rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: .88rem;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .aside-item:hover { border-color: var(--accent); box-shadow: 0 2px 12px rgba(0,0,0,.05); }
+    .aside-item .ai-icon { font-size: 1rem; margin-top: .05rem; }
+    .aside-item .ai-label { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+    .aside-item .ai-val { color: var(--ink); font-weight: 500; margin-top: .1rem; }
+
+    /* ── BTS SIO ── */
+    #bts { background: var(--white); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+
+    .option-highlight {
+      display: flex; align-items: center; gap: 2rem;
+      background: var(--accent);
+      color: white;
+      border-radius: 1rem;
+      padding: 2.5rem 3rem;
+      margin-bottom: 3rem;
+    }
+    .oh-label {
+      flex-shrink: 0;
+      font-family: var(--serif);
+      font-size: 3rem; line-height: 1;
+      opacity: .9;
+    }
+    .oh-sep { width: 1px; height: 60px; background: rgba(255,255,255,.3); flex-shrink: 0; }
+    .oh-text h3 {
+      font-family: var(--serif);
+      font-size: 1.4rem; margin-bottom: .5rem;
+    }
+    .oh-text p { font-size: .9rem; opacity: .85; line-height: 1.7; }
+
+    .competences-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .comp-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+      transition: all .2s;
+    }
+    .comp-card:hover { background: var(--white); border-color: var(--accent); box-shadow: 0 4px 20px rgba(0,0,0,.06); transform: translateY(-3px); }
+
+    .comp-num {
+      font-size: .7rem; font-weight: 500; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: .5rem;
+    }
+    .comp-title { font-size: .95rem; font-weight: 500; margin-bottom: .5rem; }
+    .comp-desc { font-size: .82rem; color: var(--sub); line-height: 1.6; }
+
+    /* Skills */
+    .skills-section { margin-top: 3rem; }
+    .skills-title { font-size: .78rem; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); margin-bottom: 1rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .tag {
+      font-size: .78rem; font-weight: 400;
+      padding: .35rem .9rem; border-radius: 2rem;
+      border: 1.5px solid var(--border);
+      color: var(--sub); background: var(--white);
+      transition: all .18s; cursor: default;
+    }
+    .tag:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-l); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2.5rem 5vw;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+    }
+    footer p { font-size: .82rem; color: var(--sub); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a {
+      font-size: .82rem; color: var(--sub);
+      text-decoration: none; transition: color .18s;
+    }
+    .footer-links a:hover { color: var(--ink); }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity .55s ease, transform .55s ease;
+    }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 820px) {
+      #hero { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 7rem; }
+      .hero-desc { max-width: 100%; }
+      .about-cols { grid-template-columns: 1fr; gap: 2rem; }
+      .competences-grid { grid-template-columns: 1fr 1fr; }
+      .option-highlight { flex-direction: column; text-align: center; gap: 1rem; }
+      .oh-sep { display: none; }
+    }
+    @media (max-width: 540px) {
+      nav { padding: 1rem 1.2rem; }
+      .nav-links { display: none; }
+      .competences-grid { grid-template-columns: 1fr; }
+      .section-wrap { padding: 4rem 1.2rem; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <span class="nav-logo">GEOFFROY Titouan</span>
+    <div class="nav-links">
+      <a href="#hero">Accueil</a>
+      <a href="#about">À propos</a>
+      <a href="#bts">BTS SIO</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <div id="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <span></span>
+        Étudiant · BTS SIO SLAM
+      </div>
+      <h1>
+        Bonjour, je suis<br>
+        <em>Titouan<br>Geoffroy</em>
+      </h1>
+      <p class="hero-desc">
+        En formation <strong>BTS Services Informatiques aux Organisations</strong>, 
+        option SLAM. Je développe mes compétences en programmation, en bases de données 
+        et en gestion de projets informatiques.
+      </p>
+      <div class="hero-cta">
+        <a href="#about" class="btn btn-primary">Me découvrir →</a>
+        <a href="#bts" class="btn btn-ghost">Le BTS SIO</a>
+      </div>
+    </div>
+
+    <div class="hero-card reveal">
+      <div class="card-avatar">[I]</div>
+      <div class="card-info-list">
+        <div class="card-info-row">
+          <span class="ci-label">Prénom</span>
+          <span class="ci-val">Titouan</span>
+        </div>
+        <div class="card-info-row">
+          <span class="ci-label">Formation</span>
+          <span class="ci-val">BTS SIO <span class="badge">SLAM</span></span>
+        </div>
+        <div class="card-info-row">
+          <span class="ci-label">École</span>
+          <span class="ci-val">Lamartine</span>
+        </div>
+        <div class="card-info-row">
+          <span class="ci-label">Promo</span>
+          <span class="ci-val">2025 — 2027</span>
+        </div>
+        <div class="card-info-row">
+          <span class="ci-label">Ville</span>
+          <span class="ci-val">Saint-Bénigne</span>
+        </div>
+        <div class="card-info-row">
+          <span class="ci-label">Contact</span>
+          <span class="ci-val">titouangeoffroyprf@gmail.com</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="full-divider">
+
+  <!-- À PROPOS -->
+  <div id="about">
+    <div class="section-wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-num">01 — À propos</div>
+          <h2>Qui suis-je ?</h2>
+        </div>
+      </div>
+      <div class="about-cols">
+        <div class="about-text reveal">
+          <p>
+            Je m'appelle <strong>Titouan Geoffroy</strong>, j'ai <strong>20 ans</strong> 
+            et je suis actuellement étudiant en <strong>BTS SIO option SLAM</strong> 
+            au lycée <strong>Lamartine</strong>.
+          </p>
+          <p>
+            Passionné d'informatique depuis maintenant plusieurs années, j'ai choisi le BTS SIO pour me professionnaliser dans le développement logiciel. L'option SLAM me permet de me spécialiser dans la conception et le développement d'applications métiers.
+          </p>
+          <p>
+            En dehors des cours, je fais du sport/musculation et je developpe mes projets personnels
+          </p>
+        </div>
+        <div class="about-aside reveal">
+          <div class="aside-item">
+            <span class="ai-icon">🎓</span>
+            <div>
+              <div class="ai-label">Formation</div>
+              <div class="ai-val">BTS SIO — SLAM</div>
+            </div>
+          </div>
+          <div class="aside-item">
+            <span class="ai-icon">🏫</span>
+            <div>
+              <div class="ai-label">Établissement</div>
+              <div class="ai-val">Lycée Lamartine</div>
+            </div>
+          </div>
+          <div class="aside-item">
+            <span class="ai-icon">📍</span>
+            <div>
+              <div class="ai-label">Localisation</div>
+              <div class="ai-val">Saint-Bénigne, France</div>
+            </div>
+          </div>
+          <div class="aside-item">
+            <span class="ai-icon">📅</span>
+            <div>
+              <div class="ai-label">Promotion</div>
+              <div class="ai-val">2025 — 2027</div>
+            </div>
+          </div>
+          <div class="aside-item">
+            <span class="ai-icon">✉️</span>
+            <div>
+              <div class="ai-label">Email</div>
+              <div class="ai-val">titouangeoffroyprf@gmail.com</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="full-divider">
+
+  <!-- BTS SIO -->
+  <div id="bts">
+    <div class="section-wrap">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-num">02 — La formation</div>
+          <h2>BTS SIO — SLAM</h2>
+        </div>
+      </div>
+
+      <div class="option-highlight reveal">
+        <div class="oh-label">SLAM</div>
+        <div class="oh-sep"></div>
+        <div class="oh-text">
+          <h3>Solutions Logicielles et Applications Métiers</h3>
+          <p>
+            Spécialité orientée développement : conception d'applications, programmation orientée objet, 
+            bases de données, développement web et mobile, gestion de projet informatique.
+          </p>
+        </div>
+      </div>
+
+      <div class="competences-grid">
+        <div class="comp-card reveal">
+          <div class="comp-num">C1</div>
+          <div class="comp-title">Gérer le patrimoine informatique</div>
+          <div class="comp-desc">Inventaire, maintenance, sécurisation et optimisation des ressources numériques.</div>
+        </div>
+        <div class="comp-card reveal">
+          <div class="comp-num">C2</div>
+          <div class="comp-title">Répondre aux incidents et demandes</div>
+          <div class="comp-desc">Collecte, suivi et traitement des incidents réseau, système et applicatif.</div>
+        </div>
+        <div class="comp-card reveal">
+          <div class="comp-num">C3</div>
+          <div class="comp-title">Développer la présence en ligne</div>
+          <div class="comp-desc">Valorisation web de l'organisation, référencement, évolution des services en ligne.</div>
+        </div>
+        <div class="comp-card reveal">
+          <div class="comp-num">C4</div>
+          <div class="comp-title">Travailler en mode projet</div>
+          <div class="comp-desc">Planification, suivi des indicateurs, méthodes agiles et travail en équipe.</div>
+        </div>
+        <div class="comp-card reveal">
+          <div class="comp-num">C5</div>
+          <div class="comp-title">Mettre à disposition un service</div>
+          <div class="comp-desc">Intégration, tests d'acceptation, déploiement et accompagnement utilisateurs.</div>
+        </div>
+        <div class="comp-card reveal">
+          <div class="comp-num">C6</div>
+          <div class="comp-title">Organiser son développement</div>
+          <div class="comp-desc">Veille technologique, identité professionnelle et construction du projet de carrière.</div>
+        </div>
+      </div>
+
+      <div class="skills-section reveal">
+        <div class="skills-title">Technologies abordées en SLAM</div>
+        <div class="tags">
+          <span class="tag">HTML / CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">PHP</span>
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">SQL / MySQL</span>
+          <span class="tag">Git</span>
+          <span class="tag">POO</span>
+          <span class="tag">MVC</span>
+          <span class="tag">API REST</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Symfony / Laravel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <p>© 2026 Titouan Geoffroy — BTS SIO SLAM</p>
+    <div class="footer-links">
+      <a href="mailto: [titouangeoffroyprf@gmail.com]">Email</a>
+      <a href="https://github.com/[tonpseudo]" target="_blank">GitHub</a>
+      <a href="https://linkedin.com/in/[tonpseudo]" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    const els = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('in'), i * 70);
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    els.forEach(el => io.observe(el));
+
+    const sections = document.querySelectorAll('[id]');
+    const links = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let cur = '';
+      sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
+      links.forEach(a => {
+        const active = a.getAttribute('href') === '#' + cur;
+        a.style.color = active ? 'var(--ink)' : '';
+        a.style.fontWeight = active ? '500' : '';
+      });
+    });
+  </script>
+</body>
+</html>
