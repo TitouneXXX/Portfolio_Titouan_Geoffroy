@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projet — Nom du projet</title>
+
+  <!-- POLICES -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <!-- STYLE INTÉGRÉ (même que ta page d'accueil) -->
+  <style>
+    :root {
+      --bg:#f7f5f2; --white:#fff; --border:#e8e4df;
+      --ink:#1a1714; --sub:#6b6560; --muted:#a09a95;
+      --accent:#2d6a4f; --accent-l:#d8ede4;
+      --serif:'DM Serif Display', serif;
+      --sans:'DM Sans', sans-serif;
+      --radius:.5rem;
+    }
+    body { background:var(--bg); font-family:var(--sans); color:var(--ink); margin:0; }
+
+    nav {
+      position:fixed; top:0; left:0; right:0;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:1.4rem 5vw; background:rgba(247,245,242,.92);
+      backdrop-filter:blur(10px); border-bottom:1px solid var(--border);
+      z-index:100;
+    }
+    .nav-logo { font-family:var(--serif); font-size:1.1rem; }
+    .nav-links { display:flex; gap:2rem; }
+    .nav-links a { color:var(--sub); text-decoration:none; font-size:.85rem; }
+    .nav-links a:hover { color:var(--ink); }
+
+    .section-wrap {
+      max-width:1100px; margin:0 auto;
+      padding:8rem 5vw 5rem;
+    }
+
+    h2 { font-family:var(--serif); font-size:2.4rem; margin-bottom:.5rem; }
+    h3 { font-family:var(--serif); font-size:1.4rem; margin-bottom:.8rem; }
+
+    .project-block { margin-bottom:3rem; }
+    .project-img {
+      width:100%; border-radius:.8rem;
+      border:1px solid var(--border); margin-top:1rem;
+    }
+
+    .tech-grid { display:flex; flex-wrap:wrap; gap:.6rem; }
+    .tech-item {
+      background:var(--accent-l); color:var(--accent);
+      padding:.4rem .9rem; border-radius:2rem; font-size:.8rem;
+    }
+
+    .mockups-grid {
+      display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+      gap:1rem;
+    }
+    .mockups-grid img {
+      width:100%; border-radius:.8rem; border:1px solid var(--border);
+    }
+
+    .tag {
+      display:inline-block; padding:.35rem .9rem;
+      border-radius:2rem; border:1px solid var(--border);
+      margin-right:.4rem; font-size:.78rem; color:var(--sub);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <div class="nav-logo">GEOFFROY Titouan</div>
+  <div class="nav-links">
+    <a href="index.html">Accueil</a>
+    <a href="projects.html">Projets</a>
+    <a href="cv.html">CV</a>
+    <a href="contact.html">Contact</a>
+  </div>
+</nav>
+
+<!-- CONTENU DU PROJET -->
+<section class="section-wrap">
+
+  <h2>Nom du projet — Entreprise</h2>
+  <p style="color:var(--sub); margin-bottom:2rem;">
+    Stage / AP — 1ère ou 2ème année — Dates du projet
+  </p>
+
+  <!-- 1. CONTEXTE -->
+  <div class="project-block">
+    <h3>1 — Contexte du projet</h3>
+    <p>Description de l’entreprise, activité, besoins…</p>
+  </div>
+
+  <!-- 2. OBJECTIFS -->
+  <div class="project-block">
+    <h3>2 — Objectifs du projet</h3>
+    <ul>
+      <li>Pour qui ?</li>
+      <li>Pour quoi faire ?</li>
+      <li>Pour améliorer quoi ?</li>
+      <li>Dans quel but ?</li>
+    </ul>
+  </div>
+
+  <!-- 3. TECHNOLOGIES -->
+  <div class="project-block">
+    <h3>3 — Technologies utilisées</h3>
+    <div class="tech-grid">
+      <div class="tech-item">HTML</div>
+      <div class="tech-item">CSS</div>
+      <div class="tech-item">JavaScript</div>
+      <div class="tech-item">MySQL</div>
+    </div>
+  </div>
+
+  <!-- 4. ARCHITECTURE -->
+  <div class="project-block">
+    <h3>4 — Architecture du projet</h3>
+    <p>Schéma logique du fonctionnement…</p>
+    <img src="architecture.png" class="project-img">
+  </div>
+
+  <!-- 5. TRAVAUX -->
+  <div class="project-block">
+    <h3>5 — Travaux effectués</h3>
+    <ul>
+      <li>Développement de…</li>
+      <li>Mise en place de…</li>
+      <li>Tests…</li>
+    </ul>
+  </div>
+
+  <!-- 6. BASE DE DONNÉES -->
+  <div class="project-block">
+    <h3>6 — Base de données</h3>
+    <img src="bdd.png" class="project-img">
+  </div>
+
+  <!-- 7. MAQUETTES -->
+  <div class="project-block">
+    <h3>7 — Maquettes</h3>
+    <div class="mockups-grid">
+      <img src="screen1.png">
+      <img src="screen2.png">
+      <img src="screen3.png">
+    </div>
+  </div>
+
+  <!-- 8. GESTION -->
+  <div class="project-block">
+    <h3>8 — Gestion du projet</h3>
+    <p>Organisation, Trello, GitHub, planning…</p>
+  </div>
+
+  <!-- 9. COMPÉTENCES -->
+  <div class="project-block">
+    <h3>9 — Compétences acquises</h3>
+    <span class="tag">Développer une interface</span>
+    <span class="tag">Optimiser une base de données</span>
+    <span class="tag">Gérer un projet</span>
+  </div>
+
+  <!-- 10. DOCUMENTS -->
+  <div class="project-block">
+    <h3>10 — Documents & Liens</h3>
+    <ul>
+      <li><a href="#">Compte rendu PDF</a></li>
+      <li><a href="#">Lien vers l’application</a></li>
+      <li><a href="#">Cahier des charges</a></li>
+      <li><a href="#">Notice technique</a></li>
+    </ul>
+  </div>
+
+</section>
+
+</body>
+</html>
