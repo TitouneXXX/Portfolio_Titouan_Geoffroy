@@ -120,21 +120,19 @@
   <div class="project-block">
     <h3>5 — Travaux effectués</h3>
     <ul>
-      <li>Développement de…</li>
-      <li>Mise en place de…</li>
-      <li>Tests…</li>
+      <li>Renommage d'une variable en conflit avec $matches, variable réservée de PowerShell.</li>
+      <li>Ajout de l'export CSV puis migration vers un export Excel via le module ImportExcel.</li>
+      <li>Correction d'un bug de « unwrapping » sur les collections à un seul élément, résolu grâce à l'opérateur virgule (return ,$list).</li>
+      <li>Refactorisation du script pour lire directement les ACL des OU plutôt que de parcourir les objets ordinateurs, réduisant significativement le temps d'exécution.</li>
+      <li>Ajout de filtres : exclusion des ACE héritées, exclusion des identités BUILTIN (par nom et par SID brut), et filtrage sur les droits prioritaires (GenericAll, WriteDacl, WriteOwner, ExtendedRight).</li>
+      <li>Gestion sécurisée des SID orphelins pour éviter les erreurs lors de la résolution d'identité.</li>
+      <li>Développement d'un résolveur de GUID vers nom lisible, interrogeant le schéma et le contexte de configuration AD.</li>
     </ul>
   </div>
 
-  <!-- 6. BASE DE DONNÉES -->
+  <!-- 6. MAQUETTES -->
   <div class="project-block">
-    <h3>6 — Base de données</h3>
-    <img src="bdd.png" class="project-img">
-  </div>
-
-  <!-- 7. MAQUETTES -->
-  <div class="project-block">
-    <h3>7 — Maquettes</h3>
+    <h3>6 — Maquettes</h3>
     <div class="mockups-grid">
       <img src="screen1.png">
       <img src="screen2.png">
@@ -142,23 +140,23 @@
     </div>
   </div>
 
-  <!-- 8. GESTION -->
+  <!-- 7. GESTION -->
   <div class="project-block">
-    <h3>8 — Gestion du projet</h3>
+    <h3>7 — Gestion du projet</h3>
     <p>Organisation, Trello, GitHub, planning…</p>
   </div>
 
-  <!-- 9. COMPÉTENCES -->
+  <!-- 8. COMPÉTENCES -->
   <div class="project-block">
-    <h3>9 — Compétences acquises</h3>
+    <h3>8 — Compétences acquises</h3>
     <span class="tag">Développer une interface</span>
     <span class="tag">Optimiser une base de données</span>
     <span class="tag">Gérer un projet</span>
   </div>
 
-  <!-- 10. DOCUMENTS -->
+  <!-- 9. DOCUMENTS -->
   <div class="project-block">
-    <h3>10 — Documents & Liens</h3>
+    <h3>9 — Documents & Liens</h3>
     <ul>
       <li><a href="#">Compte rendu PDF</a></li>
       <li><a href="#">Lien vers l’application</a></li>
