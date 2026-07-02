@@ -122,15 +122,18 @@
   <div class="project-block">
     <h3>5 — Travaux effectués</h3>
     <ul>
-      <li>Développement de…</li>
-      <li>Mise en place de…</li>
-      <li>Tests…</li>
+      <li>Conception et développement de l'interface WinForms complète (palette bleu/rouge, police Segoe UI, boutons plats, GroupBox).</li>
+      <li>Ajout de fonctionnalités : confirmation groupée, cases à cocher pour tout sélectionner/désélectionner, sélection d'image intégrée en base64 dans le commentaire de clôture.</li>
+      <li>Remplacement d'Invoke-WebRequest par Invoke-RestMethod pour fiabiliser les appels API et supprimer les prompts de sécurité.</li>
+      <li>Gestion explicite de l'encodage UTF-8 dans le corps des requêtes pour éviter les problèmes de caractères accentués.</li>
+      <li>Rédaction de la documentation utilisateur et technique de l'outil.</li>
     </ul>
   </div>
 
   <!-- 6. BASE DE DONNÉES -->
   <div class="project-block">
     <h3>6 — Base de données</h3>
+    <p>L'outil ne repose pas sur une base de données propre : il s'appuie entièrement sur l'API REST d'EasyVista, qui reste la source de vérité pour les tickets. L'application interroge et met à jour les tickets directement via les requêtes API, sans stockage local persistant.</p>
     <img src="bdd.png" class="project-img">
   </div>
 
