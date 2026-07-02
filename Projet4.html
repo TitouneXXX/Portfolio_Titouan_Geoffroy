@@ -105,17 +105,18 @@
   <div class="project-block">
     <h3>3 — Technologies utilisées</h3>
     <div class="tech-grid">
-      <div class="tech-item">HTML</div>
-      <div class="tech-item">CSS</div>
-      <div class="tech-item">JavaScript</div>
-      <div class="tech-item">MySQL</div>
+      <div class="tech-item">PowerShell</div>
+      <div class="tech-item">Active Directory</div>
+      <div class="tech-item">Excel</div>
+      <div class="tech-item">SharePoint</div>
+      <div class="tech-item">Power BI</div>
     </div>
   </div>
 
   <!-- 4. ARCHITECTURE -->
   <div class="project-block">
     <h3>4 — Architecture du projet</h3>
-    <p>Schéma logique du fonctionnement…</p>
+    <p>Un script PowerShell interroge l'Active Directory pour recenser les utilisateurs et ordinateurs actifs/inactifs. Comme l'attribut c (pays) n'est pas renseigné sur les objets ordinateurs, la segmentation par région repose sur une analyse par expression régulière du DistinguishedName de chaque objet. Les résultats sont ensuite écrits dans un classeur Excel (ClasseurPwrBI.xlsx) via automatisation COM, lui-même hébergé sur SharePoint/OneDrive (INFRASecu471) et connecté à Power BI pour la visualisation.</p>
     <img src="architecture.png" class="project-img">
   </div>
 
@@ -123,16 +124,18 @@
   <div class="project-block">
     <h3>5 — Travaux effectués</h3>
     <ul>
-      <li>Développement de…</li>
-      <li>Mise en place de…</li>
-      <li>Tests…</li>
+      <li>Développement du script d'interrogation AD pour extraire les comptes utilisateurs et ordinateurs actifs/inactifs.</li>
+      <li>Mise en place d'une segmentation par région à partir d'une analyse regex du DistinguishedName, en contournement de l'attribut c non renseigné sur les objets ordinateurs.</li>
+      <li>Automatisation de l'écriture des résultats dans le classeur Excel via COM.</li>
+      <li>Résolution d'un problème récurrent de processus Excel résiduels en arrière-plan, corrigé avec Stop-Process -Force.</li>
+      <li>Migration du chemin de stockage du fichier vers OneDrive/SharePoint pour permettre la mise à jour automatique du rapport Power BI.</li>
     </ul>
   </div>
 
   <!-- 6. BASE DE DONNÉES -->
   <div class="project-block">
     <h3>6 — Base de données</h3>
-    <img src="bdd.png" class="project-img">
+    <p>Le script extrait les données directement depuis l'Active Directory, les structure par région et par statut (actif/inactif), puis les écrit dans un classeur Excel qui sert de source de données au tableau de bord Power BI.</p>
   </div>
 
   <!-- 7. MAQUETTES -->
@@ -148,15 +151,15 @@
   <!-- 8. GESTION -->
   <div class="project-block">
     <h3>8 — Gestion du projet</h3>
-    <p>Organisation, Trello, GitHub, planning…</p>
+    <p>Projet mené en autonomie durant le stage, avec des ajustements itératifs liés aux contraintes techniques rencontrées (attribut manquant sur les objets AD, processus Excel bloqués, migration du fichier vers SharePoint) validés au fur et à mesure avec l'équipe.</p></p>
   </div>
 
   <!-- 9. COMPÉTENCES -->
   <div class="project-block">
     <h3>9 — Compétences acquises</h3>
-    <span class="tag">Développer une interface</span>
-    <span class="tag">Optimiser une base de données</span>
-    <span class="tag">Gérer un projet</span>
+    <span class="tag">Automatiser l'extraction de données depuis l'annuaire Active Directory</span>
+    <span class="tag">Produire un rapport Power BI</span>
+    <span class="tag">Résoudre des problèmes techniques d'automatisation</span>
   </div>
 
   <!-- 10. DOCUMENTS -->
