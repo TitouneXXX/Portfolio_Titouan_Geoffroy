@@ -53,8 +53,9 @@
     }
 
     .mockups-grid {
-      display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-      gap:1rem;
+    display:grid; 
+    grid-template-columns: repeat(2, 1fr);
+    gap:1rem;
     }
     .mockups-grid img {
       width:100%; border-radius:.8rem; border:1px solid var(--border);
@@ -115,10 +116,11 @@
   <div class="project-block">
     <h3>4 — Architecture du projet</h3>
     <p>L'application est une interface graphique WinForms développée en PowerShell, organisée en 4 onglets : Consulter (affichage du planning en cours), Modifier (édition d'une astreinte existante), Ajouter-Supprimer (gestion des entrées du planning) et Modifier IT (gestion de la liste des techniciens). L'outil lit et écrit directement dans le fichier Excel « On-call calendar IT Infrastructure.xlsx », synchronisé via OneDrive, ce qui évite de dupliquer la donnée ou de mettre en place une base de données séparée.</p>
-    <img src="Ast1.png" width="200">
-    <img src="Ast2.png" width="200">
-    <img src="Ast3.png" width="200">
-    <img src="Ast4.png" width="200">
+    <div class="mockups-grid">
+    <img src="Ast1.png">
+    <img src="Ast2.png">
+    <img src="Ast3.png">
+    <img src="Ast4.png">
   </div>
 
   <!-- 5. TRAVAUX -->
