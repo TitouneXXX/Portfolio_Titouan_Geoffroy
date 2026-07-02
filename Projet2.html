@@ -97,7 +97,7 @@
     <h3>2 — Demandeur, utilisatuers et acteurs</h3>
     <ul>
       <p>La demande n'émane pas d'un cahier des charges formel, mais d'un besoin identifié directement sur le terrain au cours de mon stage, en observant la charge de travail liée à la clôture manuelle des tickets. Les acteurs concernés sont :</p>
-      <li>Les techniciens du service IT Infrastructure, qui clôturent les tickets au quotidien.</li>
+      <li>Les techniciens du service IT Infrastructure, qui clôturent les tickets au quotidien.</li></br>
       <li>Mon tuteur de stage, Nicolas Vernoux, en tant que validateur du besoin et du périmètre de la solution.</li>
     </ul>
   </div>
@@ -106,17 +106,15 @@
   <div class="project-block">
     <h3>3 — Technologies utilisées</h3>
     <div class="tech-grid">
-      <div class="tech-item">HTML</div>
-      <div class="tech-item">CSS</div>
-      <div class="tech-item">JavaScript</div>
-      <div class="tech-item">MySQL</div>
+      <div class="tech-item">PowerShell</div>
+      <div class="tech-item">WinForms</div>
     </div>
   </div>
 
   <!-- 4. ARCHITECTURE -->
   <div class="project-block">
     <h3>4 — Architecture du projet</h3>
-    <p>Schéma logique du fonctionnement…</p>
+    <p>L'architecture est volontairement simple : il s'agit d'une application cliente exécutée localement sur le poste de l'utilisateur, qui communique en HTTPS avec le serveur EasyVista. Aucun serveur intermédiaire n'est nécessaire. L'authentification repose sur un schéma HTTP Basic : les identifiants du compte de service sont encodés en base64 et transmis dans l'en-tête de chaque requête envoyée à l'API.</p>
     <img src="architecture.png" class="project-img">
   </div>
 
