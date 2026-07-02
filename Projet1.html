@@ -83,7 +83,7 @@
 
   <h2>Calendrier d'Astreinte — Algeco</h2>
   <p style="color:var(--sub); margin-bottom:2rem;">
-    Stage de 1ère du 03/06/26  13/06/26
+    Stage de 1ère du 03/06/26 au 13/06/26
   </p>
 
   <!-- 1. CONTEXTE -->
@@ -122,9 +122,12 @@
   <div class="project-block">
     <h3>5 — Travaux effectués</h3>
     <ul>
-      <li>Développement de…</li>
-      <li>Mise en place de…</li>
-      <li>Tests…</li>
+      <li>Développement de l'interface WinForms à 4 onglets, avec simulation de texte de substitution (placeholder) dans les champs de saisie via les évènements GotFocus/LostFocus.</li>
+      <li>Implémentation du calcul de semaine au format ISO 8601, avec gestion des cas particuliers : règle de l'année du jeudi et cas limite de la semaine 53.</li>
+      <li>Mise en place du pattern Open-ExcelPackage / Save / Dispose pour lire et écrire dans le fichier Excel sans corrompre les données ni bloquer le fichier.</li>
+      <li>Correction d'un bug lié à une variable non définie ($LigneDébutModif) qui provoquait des erreurs lors de la modification d'une astreinte.</li>
+      <li>Résolution d'un problème d'encodage UTF-8 (accents mal affichés) dans le script final.</li>
+      <li>Packaging et déploiement : création d'un lanceur .vbs pour exécuter le script sans fenêtre console visible, et d'un script d'installation utilisant la variable %USERNAME% pour que le raccourci fonctionne sur n'importe quel poste utilisateur.</li>
     </ul>
   </div>
 
