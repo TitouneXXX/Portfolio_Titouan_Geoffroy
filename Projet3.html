@@ -83,41 +83,36 @@
 
   <h2>Audit des Délégations AD</h2>
   <p style="color:var(--sub); margin-bottom:2rem;">
-    Projet de tage de 1ère année du  
+    Projet de stage de 1ère année du 22/06/26 au 25/06/26 
   </p>
 
   <!-- 1. CONTEXTE -->
   <div class="project-block">
     <h3>1 — Contexte du projet</h3>
-    <p>Description de l’entreprise, activité, besoins…</p>
+    <p>Sur le domaine Active Directory d'Algeco (DC=int,DC=algecoscotsman,DC=com), des droits de délégation sont accordés au fil du temps sur différentes unités d'organisation (OU), sans qu'il existe de vue centralisée permettant de savoir qui possède quels droits sur quelle OU. Ce manque de visibilité complique l'audit de sécurité et le respect du principe du moindre privilège. Ce projet répond à ce besoin en automatisant la collecte et la lecture de ces délégations.</p>
   </div>
 
   <!-- 2. OBJECTIFS -->
   <div class="project-block">
     <h3>2 — Objectifs du projet</h3>
     <ul>
-      <li>Pour qui ?</li>
-      <li>Pour quoi faire ?</li>
-      <li>Pour améliorer quoi ?</li>
-      <li>Dans quel but ?</li>
-    </ul>
+      <p>Mon supperieur souhaitait disposer d'un état des lieux fiable des délégations en place sur l'annuaire.L'équipe IT Infrastructure : utilisait le rapport généré pour identifier d'éventuelles délégations excessives ou obsolètes et sécuriser l'annuaire.</p>
   </div>
 
   <!-- 3. TECHNOLOGIES -->
   <div class="project-block">
     <h3>3 — Technologies utilisées</h3>
     <div class="tech-grid">
-      <div class="tech-item">HTML</div>
-      <div class="tech-item">CSS</div>
-      <div class="tech-item">JavaScript</div>
-      <div class="tech-item">MySQL</div>
+      <div class="tech-item">PowerShell</div>
+      <div class="tech-item">Active Directory</div>
+      <div class="tech-item">Excel</div>
     </div>
   </div>
 
   <!-- 4. ARCHITECTURE -->
   <div class="project-block">
     <h3>4 — Architecture du projet</h3>
-    <p>Schéma logique du fonctionnement…</p>
+    <p>Le script interroge directement les ACL des OU de l'annuaire Active Directory plutôt que de passer par les objets ordinateurs, ce qui améliore nettement les performances. Il filtre les ACE héritées, exclut les identités BUILTIN (y compris via leur SID brut S-1-5-32-*), et ne conserve que les droits prioritaires (GenericAll, WriteDacl, WriteOwner, ExtendedRight). Un résolveur de GUID interroge à la fois le schéma et le contexte de configuration AD pour transformer les identifiants techniques en noms de droits lisibles. Le résultat est exporté dans un fichier Excel horodaté, généré via $PSScriptRoot.</p>
     <img src="architecture.png" class="project-img">
   </div>
 
