@@ -53,11 +53,12 @@
     }
 
     .mockups-grid {
-      display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+      display:grid; 
+      grid-template-columns: repeat(2, 1fr);
       gap:1rem;
     }
     .mockups-grid img {
-      width:100%; border-radius:.8rem; border:1px solid var(--border);
+      width:55%; border-radius:.8rem; border:1px solid var(--border);
     }
 
     .tag {
@@ -113,7 +114,6 @@
   <div class="project-block">
     <h3>4 — Architecture du projet</h3>
     <p>Le script interroge directement les ACL des OU de l'annuaire Active Directory plutôt que de passer par les objets ordinateurs, ce qui améliore nettement les performances. Il filtre les ACE héritées, exclut les identités BUILTIN (y compris via leur SID brut S-1-5-32-*), et ne conserve que les droits prioritaires (GenericAll, WriteDacl, WriteOwner, ExtendedRight). Un résolveur de GUID interroge à la fois le schéma et le contexte de configuration AD pour transformer les identifiants techniques en noms de droits lisibles. Le résultat est exporté dans un fichier Excel horodaté, généré via $PSScriptRoot.</p>
-    <img src="architecture.png" class="project-img">
   </div>
 
   <!-- 5. TRAVAUX -->
