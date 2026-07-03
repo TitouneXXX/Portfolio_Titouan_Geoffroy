@@ -118,6 +118,7 @@
   <div class="project-block">
     <h3>4 — Architecture du projet</h3>
     <p>Un script PowerShell interroge l'Active Directory pour recenser les utilisateurs et ordinateurs actifs/inactifs. Comme l'attribut c (pays) n'est pas renseigné sur les objets ordinateurs, la segmentation par région repose sur une analyse par expression régulière du DistinguishedName de chaque objet. Les résultats sont ensuite écrits dans un classeur Excel (ClasseurPwrBI.xlsx) via automatisation COM, lui-même hébergé sur SharePoint/OneDrive (INFRASecu471) et connecté à Power BI pour la visualisation.</p>
+    <div class="mockups-grid">
     <img src="Prw1.png">
   </div>
 
@@ -137,6 +138,7 @@
   <div class="project-block">
     <h3>6 — Base de données</h3>
     <p>Le script extrait les données directement depuis l'Active Directory, les structure par région et par statut (actif/inactif), puis les écrit dans un classeur Excel qui sert de source de données au tableau de bord Power BI.</p>
+    <div class="mockups-grid">
     <img src="Prw2.png">
   </div>
 
