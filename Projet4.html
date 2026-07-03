@@ -53,11 +53,12 @@
     }
 
     .mockups-grid {
-      display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+      display:grid; 
+      grid-template-columns: repeat(2, 1fr);
       gap:1rem;
     }
     .mockups-grid img {
-      width:100%; border-radius:.8rem; border:1px solid var(--border);
+      width:55%; border-radius:.8rem; border:1px solid var(--border);
     }
 
     .tag {
@@ -117,7 +118,7 @@
   <div class="project-block">
     <h3>4 — Architecture du projet</h3>
     <p>Un script PowerShell interroge l'Active Directory pour recenser les utilisateurs et ordinateurs actifs/inactifs. Comme l'attribut c (pays) n'est pas renseigné sur les objets ordinateurs, la segmentation par région repose sur une analyse par expression régulière du DistinguishedName de chaque objet. Les résultats sont ensuite écrits dans un classeur Excel (ClasseurPwrBI.xlsx) via automatisation COM, lui-même hébergé sur SharePoint/OneDrive (INFRASecu471) et connecté à Power BI pour la visualisation.</p>
-    <img src="architecture.png" class="project-img">
+    <img src="Prw1.png">
   </div>
 
   <!-- 5. TRAVAUX -->
@@ -136,42 +137,26 @@
   <div class="project-block">
     <h3>6 — Base de données</h3>
     <p>Le script extrait les données directement depuis l'Active Directory, les structure par région et par statut (actif/inactif), puis les écrit dans un classeur Excel qui sert de source de données au tableau de bord Power BI.</p>
+    <img src="Prw2.png">
   </div>
 
-  <!-- 7. MAQUETTES -->
-  <div class="project-block">
-    <h3>7 — Maquettes</h3>
-    <div class="mockups-grid">
-      <img src="screen1.png">
-      <img src="screen2.png">
-      <img src="screen3.png">
-    </div>
-  </div>
+
 
   <!-- 8. GESTION -->
   <div class="project-block">
-    <h3>8 — Gestion du projet</h3>
+    <h3>7 — Gestion du projet</h3>
     <p>Projet mené en autonomie durant le stage, avec des ajustements itératifs liés aux contraintes techniques rencontrées (attribut manquant sur les objets AD, processus Excel bloqués, migration du fichier vers SharePoint) validés au fur et à mesure avec l'équipe.</p></p>
   </div>
 
   <!-- 9. COMPÉTENCES -->
   <div class="project-block">
-    <h3>9 — Compétences acquises</h3>
+    <h3>8 — Compétences acquises</h3>
     <span class="tag">Automatiser l'extraction de données depuis l'annuaire Active Directory</span>
     <span class="tag">Produire un rapport Power BI</span>
     <span class="tag">Résoudre des problèmes techniques d'automatisation</span>
   </div>
 
-  <!-- 10. DOCUMENTS -->
-  <div class="project-block">
-    <h3>10 — Documents & Liens</h3>
-    <ul>
-      <li><a href="#">Compte rendu PDF</a></li>
-      <li><a href="#">Lien vers l’application</a></li>
-      <li><a href="#">Cahier des charges</a></li>
-      <li><a href="#">Notice technique</a></li>
-    </ul>
-  </div>
+
 
 </section>
 
